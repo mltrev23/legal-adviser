@@ -2,3 +2,4 @@ transformers
 tensorflow
 sentencepiece
 torch
+llama-cpp-python

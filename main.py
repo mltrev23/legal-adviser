@@ -1,6 +1,7 @@
 # Use a pipeline as a high-level helper
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+import datasets
 
 # device = 'cuda' if torch.cuda.is_available() else 'cpu'
 device = 'cpu'
@@ -8,6 +9,9 @@ device = 'cpu'
 # Load the tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("Equall/Saul-7B-Instruct-v1")
 model = AutoModelForCausalLM.from_pretrained("Equall/Saul-7B-Instruct-v1").to(device)
+
+dataset = datasets.load_dataset('nguha/legalbench', 'abercrombie')
+print(dataset['train'].to_pandas())
 
 # Define the prompt
 prompt = """
